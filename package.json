@@ -1,0 +1,35 @@
+{
+    "name": "@routups/docs",
+    "private": true,
+    "version": "1.0.0",
+    "description": "This repository contains the routup documentation.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/authup/docs.git"
+    },
+    "main": "dist/index.js",
+    "files": [
+        "dist/"
+    ],
+    "scripts": {
+        "dev": "vitepress dev src --temp .temp",
+        "build": "vitepress build src --temp .temp",
+        "help": "vitepress --help"
+    },
+    "keywords": [
+        "docs"
+    ],
+    "license": "MIT",
+    "devDependencies": {
+        "@tada5hi/eslint-config-vue-typescript": "^1.2.8",
+        "eslint": "^8.40.0",
+        "flexsearch": "^0.7.31",
+        "rimraf": "^5.0.0",
+        "vitepress-plugin-search": "^1.0.4-alpha.20",
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {
+        "vitepress": "^1.0.0-alpha.75",
+        "vue": "^3.3.2"
+    }
+}

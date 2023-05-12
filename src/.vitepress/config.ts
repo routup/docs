@@ -6,10 +6,10 @@ export default defineConfig({
     ignoreDeadLinks: 'localhostLinks',
     themeConfig: {
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/tada5hi/routup' },
+            { icon: 'github', link: 'https://github.com/routup/routup' },
         ],
         editLink: {
-            pattern: 'https://github.com/tada5hi/routup/edit/master/docs/:path',
+            pattern: 'https://github.com/routup/docs/edit/master/docs/:path',
             text: 'Edit this page on GitHub'
         },
         nav: [

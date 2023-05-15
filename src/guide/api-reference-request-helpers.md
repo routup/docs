@@ -339,7 +339,7 @@ declare function setRequestQuery(
 ) : void;
 ```
 
-## `useRequestBody`
+## `useRequestQuery`
 
 This function returns the query parameters of the request.
 This requires that the query parameters are set by the [query](./../plugins/query/) plugin or a plugin with a similar function

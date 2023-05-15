@@ -24,8 +24,8 @@ router.use(middleware);
 ```
 
 To share data between middlewares or handlers in general, it is recommended
-to use the helpers [setRequestEnv](./api-reference-request-helpers.md#setrequestenv)
-and [useRequestEnv](./api-reference-request-helpers.md#userequestenv).
+to use the helpers [setRequestEnv](../api/request-helpers.md#setrequestenv)
+and [useRequestEnv](../api/request-helpers.md#userequestenv).
 
 ```typescript
 import { Router, setRequestEnv, useRequestEnv } from 'routup';

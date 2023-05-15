@@ -3,7 +3,7 @@
 Mounting paths define endpoints (URIs) for which a request can be handled.
 Besides, defining [string](#string) paths, [regular expressions](#regular-expressions) can be used as well.
 
-Route handlers should in most cases, use a [helper](./helpers.md) (e.g. [send](./api-reference-response-helpers.md#send))
+Route handlers should in most cases, use a [helper](./helpers.md) (e.g. [send](../api/response-helpers.md#send))
 to send a response and terminate the request on completion.
 
 This does not apply, if the request should be handled by another handler in the callback chain.

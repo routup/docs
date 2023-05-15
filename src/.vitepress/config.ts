@@ -24,6 +24,11 @@ export default defineConfig({
                 activeMatch: '/guide/',
             },
             {
+                text: 'API',
+                link: '/api/',
+                activeMatch: '/api/'
+            },
+            {
                 text: 'Plugins',
                 activeMatch: '/plugins/',
                 items: [
@@ -60,14 +65,22 @@ export default defineConfig({
                         {text: 'Mounting Paths', link: '/guide/mounting-paths'},
                         {text: 'Plugins', link: '/guide/plugins'},
                     ]
-                },
+                }
+            ],
+            '/api/': [
                 {
-                    text: 'API Reference',
+                    text: 'Introduction',
                     items: [
-                        {text: 'Request Helpers', link: '/guide/api-reference-request-helpers'},
-                        {text: 'Response Helpers', link: '/guide/api-reference-response-helpers'}
+                        { text: 'Overview', link: '/api/' },
                     ]
                 },
+                {
+                    text: 'Helpers',
+                    items: [
+                        {text: 'Request', link: '/api/request-helpers'},
+                        {text: 'Response', link: '/api/response-helpers'}
+                    ]
+                }
             ],
             '/plugins/body/': [
                 {
@@ -107,7 +120,6 @@ export default defineConfig({
                     items: [
                         {text: 'Introduction', link: '/plugins/prometheus/'},
                         {text: 'Installation', link: '/plugins/prometheus/installation.md'},
-                        {text: 'Configuration', link: '/plugins/prometheus/configuration.md'},
                         {text: 'Usage', link: '/plugins/prometheus/usage.md'}
                     ]
                 },

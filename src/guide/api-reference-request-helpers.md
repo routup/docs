@@ -16,8 +16,24 @@ declare function setRequestBody(
 
 declare function setRequestBody(
     req: Request,
-    record: Record<string, any>, 
-    append?: boolean
+    record: Record<string, any>
+) : void;
+```
+
+## `extendRequstBody`
+This function extends the parsed request body/payload for the current request.
+Check the [body](./../plugins/body/) plugin for an example implementation.
+
+```typescript
+declare function extendRequestBody(
+    req: Request,
+    key: string,
+    value: unknown
+) : void;
+
+declare function extendRequestBody(
+    req: Request,
+    record: Record<string, any>
 ) : void;
 ```
 
@@ -57,9 +73,33 @@ Check the [cookie](./../plugins/cookie/) plugin for an example implementation.
 
 ```typescript
 declare function setRequestCookies(
-    req: IncomingMessage,
-    record: Record<string, any>,
-    mergeIt?: boolean,
+    req: Request,
+    key: string,
+    value: unknown
+) : void;
+
+declare function setRequestCookies(
+    req: Request,
+    record: Record<string, any>
+) : void;
+```
+
+## `extendRequestCookies`
+
+This function sets the parsed request cookies for the current request.
+This method should be implemented by a router middleware/plugin.
+Check the [cookie](./../plugins/cookie/) plugin for an example implementation.
+
+```typescript
+declare function extendRequestCookies(
+    req: Request,
+    key: string,
+    value: unknown
+) : void;
+
+declare function extendRequestCookies(
+    req: Request,
+    record: Record<string, any>
 ) : void;
 ```
 
@@ -333,6 +373,25 @@ declare function setRequestQuery(
 ) : void;
 
 declare function setRequestQuery(
+    req: Request, 
+    record: Record<string, any>,
+    append?: boolean
+) : void;
+```
+
+## `extendRequestQuery`
+
+This function extends the parsed request query parameters for the current request.
+Check the [query](./../plugins/query/) plugin for an example implementation.
+
+```typescript
+declare function extendRequestQuery(
+    req: Request,
+    key: string,
+    value: unknown
+) : void;
+
+declare function extendRequestQuery(
     req: Request, 
     record: Record<string, any>,
     append?: boolean

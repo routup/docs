@@ -1,6 +1,6 @@
 # Parser
 
-Besides using the `createRequestParser` method, it is also possible to register a specific parser
+Besides using the `createHandler` method, it is also possible to register a specific parser
 as middleware.
 
 ## Json
@@ -9,10 +9,10 @@ To parse `application/json` input data, mount the json parser to the router inst
 
 ```typescript
 import { Router, send } from 'routup';
-import { createRequestJsonParser, useRequestBody } from '@routup/body';
+import { createJsonHandler, useRequestBody } from '@routup/body';
 
 const router = new Router();
-router.use(createRequestJsonParser());
+router.use(createJsonHandler());
 
 router.get('/', (req, res) => {
     const body = useRequestBody(req);
@@ -31,10 +31,10 @@ To parse `application/x-www-form-urlencoded` input data, mount the url-encoded p
 
 ```typescript
 import { Router, send } from 'routup';
-import { createRequestUrlEncodedParser, useRequestBody } from '@routup/body';
+import { createUrlEncodedHandler, useRequestBody } from '@routup/body';
 
 const router = new Router();
-router.use(createRequestUrlEncodedParser({ extended: false }));
+router.use(createUrlEncodedHandler({ extended: false }));
 
 router.get('/', (req, res) => {
     const body = useRequestBody(req);
@@ -53,10 +53,10 @@ To parse `any` input data as Buffer, mount the raw parser to the router instance
 
 ```typescript
 import { Router, send } from 'routup';
-import { createRequestRawParser, useRequestBody } from '@routup/body';
+import { createRawHandler, useRequestBody } from '@routup/body';
 
 const router = new Router();
-router.use(createRequestRawParser());
+router.use(createRawHandler());
 
 router.get('/', (req, res) => {
     const body = useRequestBody(req);
@@ -75,10 +75,10 @@ To parse `any` input data as string, mount the text parser to the router instanc
 
 ```typescript
 import { Router, send } from 'routup';
-import { createRequestTextParser, useRequestBody } from '@routup/body';
+import { createTextHandler, useRequestBody } from '@routup/body';
 
 const router = new Router();
-router.use(createRequestTextParser({ type: 'text/html' }));
+router.use(createTextHandler({ type: 'text/html' }));
 
 router.get('/', (req, res) => {
     const body = useRequestBody(req);

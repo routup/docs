@@ -24,7 +24,7 @@
         "@tada5hi/eslint-config-vue-typescript": "^1.2.8",
         "eslint": "^8.40.0",
         "flexsearch": "^0.7.31",
-        "rimraf": "^5.0.0",
+        "rimraf": "^5.0.1",
         "vitepress-plugin-search": "^1.0.4-alpha.20",
         "typescript": "^5.0.4"
     },

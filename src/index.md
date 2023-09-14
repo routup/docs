@@ -2,8 +2,8 @@
 layout: home
 hero:
     name: Routup 🧙‍
-    text: Routing Framework
-    tagline: A lightweight, minimalistic and extendable http interface based routing framework
+    text: Routing Library
+    tagline: A lightweight, runtime agnostic and extendable routing library
     actions:
        - theme: brand
          text: Get Started
@@ -13,6 +13,9 @@ hero:
          link: https://github.com/routup/routup
 
 features:
+    - icon: 🏃‍♂️
+      title: Runtime agnostic
+      details: Run code everywhere
     - icon: 🚀
       title: High Performance
       details: Fast and efficient routing of requests
@@ -22,7 +25,4 @@ features:
     - icon: 👕
       title: TypeScript Support
       details: Type-safe development and easier maintenance of the codebase
-    - icon: 🤝️
-      title: (Error-) Middlewares
-      details: Perform additional processing on requests and responses
 ---

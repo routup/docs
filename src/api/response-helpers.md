@@ -63,7 +63,7 @@ as argument and negotiate the content-type of the input data and sends
 a formatted response to client.
 
 ```typescript
-declare function send(res: Response, chunk?: any);
+declare async function send(res: Response, chunk?: any) : Promise<void>;
 ```
 
 ## `sendFile`
@@ -71,9 +71,29 @@ declare function send(res: Response, chunk?: any);
 Send a local file to the client.
 
 ```typescript
+type SendFileContentOptions = {
+    end?: number,
+    start?: number;
+};
+
+type SendFileStats = {
+    size?: number,
+    mtime?: Date | number | string,
+    name?: string
+};
+
+type SendFileOptions = {
+    stats: () => Promise<SendFileStats> | SendFileStats,
+    content: (
+        options: SendFileContentOptions
+    ) => Promise<unknown> | unknown
+    attachment?: boolean,
+    name?: string
+};
+
 declare function sendFile(
-    res: ServerResponse, 
-    filePath: string,
+    res: ServerResponse,
+    options: SendFileOptions,
     fn?: Next
 );
 ```
@@ -97,7 +117,7 @@ Send a readable stream to the client.
 ```typescript
 declare function sendStream(
     res: ServerResponse, 
-    stream: Readable, 
+    stream: Readable | ReadableStream, 
     fn?: Next
 ) 
 ```

@@ -1,4 +1,4 @@
-import { defineConfig} from "vitepress";
+import { defineConfig } from 'vitepress';
 
 export default defineConfig({
     title: 'Routup',
@@ -54,7 +54,7 @@ export default defineConfig({
                     ]
                 },
                 {
-                    text: 'Getting Started',
+                    text: 'Essentials',
                     items: [
                         {text: 'Router', link: '/guide/router'},
                         {text: 'Handler', link: '/guide/handler'},
@@ -64,6 +64,12 @@ export default defineConfig({
                         {text: 'Mounting Methods', link: '/guide/mounting-methods'},
                         {text: 'Mounting Paths', link: '/guide/mounting-paths'},
                         {text: 'Plugins', link: '/guide/plugins'},
+                    ]
+                },
+                {
+                    text: 'Advanced',
+                    items: [
+                        { text: 'Dispatcher', link: '/guide/dispatcher' }
                     ]
                 }
             ],

@@ -1,7 +1,7 @@
 # Middlewares
 
-A middleware is a [handler](./handler.md) which does not finally process the request. 
-Instead, it calls the `next()` callback function, to execute the next handler in the chain.
+A middleware is usually a [handler](./handler.md) that does not finalize the request.
+Instead, it calls the `next()` callback function or returns a value that resolves to **undefined** to execute the next handler in the chain.
 
 ::: warning **Note**
 

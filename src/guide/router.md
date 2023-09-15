@@ -10,6 +10,9 @@ Each endpoint aka path can have one or more handler functions, which are execute
 
 ## Environment
 
+It is possible to use Routup in any javascript runtime environment. Below are examples for Node.Js, Bun and Deno.
+There are different [dispatchers](dispatcher.md) how requests can be transmitted in different ways.
+
 ### Node
 
 ```typescript

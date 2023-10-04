@@ -2,7 +2,7 @@
 
 A "helper" is a function that allows logic to be encapsulated and reused in different places.
 
-They exist to transform and interact with the incoming [request](./request-helpers.md) and 
+They exist to transform and interact with the incoming [request](../api/request-helpers.md) and 
 manipulate the [response](../api/response-helpers.md) upstream. For example, 
 it may be necessary to access the IP address, Host, Path, etc. at different places.
 

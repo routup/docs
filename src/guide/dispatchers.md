@@ -10,14 +10,14 @@ For this purpose either the predefined function dispatchNodeRequest can be used,
 ```typescript
 import { createServer } from 'node:http';
 import {
+    coreHandler,
     dispatchNodeRequest,
-    Router,
-    send
+    Router
 } from 'routup';
 
 const router = new Router();
 
-router.get('/', () => 'Hello World');
+router.get('/', coreHandler(() => 'Hello, World!'));
 
 const server = createServer((req, res) => {
     void dispatchNodeRequest(router, req, res);
@@ -31,13 +31,13 @@ The other option is to create a dispatch function for a specific router.
 import {createServer} from 'node:http';
 import {
     createNodeDispatcher,
-    Router,
-    send
+    coreHandler,
+    Router
 } from 'routup';
 
 const router = new Router();
 
-router.get('/', () => 'Hello World');
+router.get('/', coreHandler(() => 'Hello, World!'));
 
 const server = createServer(createNodeDispatcher(router));
 server.listen(3000)
@@ -53,13 +53,13 @@ This request can include attributes like **path**, **headers**, **body** & **met
 import fs from 'node:fs';
 import {
     createRawDispatcher,
-    Router,
-    send
+    coreHandler,
+    Router
 } from 'routup';
 
 const router = new Router();
 
-router.post('/', () => { /* ... */ });
+router.post('/', coreHandler(() => 'Hello, world!'));
 
 const dispatch = createRawDispatcher(router);
 
@@ -88,13 +88,13 @@ This can be done as follows:
 ```typescript
 import {
     createWebDispatcher,
-    Router,
-    send
+    coreHandler,
+    Router
 } from 'routup';
 
 const router = new Router();
 
-router.get('/', () => 'Hello World');
+router.get('/', coreHandler(() => 'Hello, World!'));
 
 const dispatch = createWebDispatcher(router);
 const request = new Request(

@@ -1,58 +1,5 @@
 # Request Helpers
 
-
-## `setRequestBody`
-
-This function sets the parsed request body/payload for the current request.
-This method should be implemented by a router middleware/plugin.
-Check the [body](./../plugins/body/) plugin for an example implementation.
-
-```typescript
-declare function setRequestBody(
-    req: Request,
-    key: string,
-    value: unknown
-) : void;
-
-declare function setRequestBody(
-    req: Request,
-    record: Record<string, any>
-) : void;
-```
-
-## `extendRequstBody`
-This function extends the parsed request body/payload for the current request.
-Check the [body](./../plugins/body/) plugin for an example implementation.
-
-```typescript
-declare function extendRequestBody(
-    req: Request,
-    key: string,
-    value: unknown
-) : void;
-
-declare function extendRequestBody(
-    req: Request,
-    record: Record<string, any>
-) : void;
-```
-
-## `useRequestBody`
-
-This function returns the parsed request payload.
-This requires that the body is set by the [body](./../plugins/body/) plugin or a plugin with a similar function 
-.
-
-```typescript
-declare function useRequestBody(
-    req: Request
-) : Record<string, any>;
-
-declare function useRequestBody(
-    req: Request, key: string
-) : any | undefined;
-```
-
 ## `isRequestCachable`
 
 This function compares the header `if-modified-since` with a passed Date information
@@ -63,67 +10,6 @@ declare function isRequestCachable(
     req: Request, 
     modifiedTime: string | Date
 ) : boolean;
-```
-
-## `setRequestCookies`
-
-This function sets the parsed request cookies for the current request.
-This method should be implemented by a router middleware/plugin.
-Check the [cookie](./../plugins/cookie/) plugin for an example implementation.
-
-```typescript
-declare function setRequestCookies(
-    req: Request,
-    key: string,
-    value: unknown
-) : void;
-
-declare function setRequestCookies(
-    req: Request,
-    record: Record<string, any>
-) : void;
-```
-
-## `extendRequestCookies`
-
-This function sets the parsed request cookies for the current request.
-This method should be implemented by a router middleware/plugin.
-Check the [cookie](./../plugins/cookie/) plugin for an example implementation.
-
-```typescript
-declare function extendRequestCookies(
-    req: Request,
-    key: string,
-    value: unknown
-) : void;
-
-declare function extendRequestCookies(
-    req: Request,
-    record: Record<string, any>
-) : void;
-```
-
-## `useRequestCookies`
-
-This function returns the parsed request cookies.
-This requires that the body is set by the [cookie](./../plugins/cookie/) plugin or a plugin with a similar function.
-
-```typescript
-declare function useRequestCookies(
-    req: IncomingMessage,
-) : Record<string, string>;
-```
-
-## `useRequestCookie`
-
-This function returns a **single** parsed request cookies.
-This requires that the body is set by the [cookie](./../plugins/cookie/) plugin or a plugin with a similar function.
-
-```typescript
-declare function useRequestCookie(
-    req: IncomingMessage,
-    name: string
-) : string | undefined;
 ```
 
 ## `setRequestEnv`
@@ -358,62 +244,6 @@ type RequestProtocolOptions = {
 ```
 
 - [TrustProxyInput](#trustproxyinput)
-
-## `setRequestQuery`
-
-This function sets the parsed request query parameters for the current request.
-This method should be implemented by a router middleware/plugin.
-Check the [query](./../plugins/query/) plugin for an example implementation.
-
-```typescript
-declare function setRequestQuery(
-    req: Request,
-    key: string,
-    value: unknown
-) : void;
-
-declare function setRequestQuery(
-    req: Request, 
-    record: Record<string, any>,
-    append?: boolean
-) : void;
-```
-
-## `extendRequestQuery`
-
-This function extends the parsed request query parameters for the current request.
-Check the [query](./../plugins/query/) plugin for an example implementation.
-
-```typescript
-declare function extendRequestQuery(
-    req: Request,
-    key: string,
-    value: unknown
-) : void;
-
-declare function extendRequestQuery(
-    req: Request, 
-    record: Record<string, any>,
-    append?: boolean
-) : void;
-```
-
-## `useRequestQuery`
-
-This function returns the query parameters of the request.
-This requires that the query parameters are set by the [query](./../plugins/query/) plugin or a plugin with a similar function
-.
-
-```typescript
-declare function useRequestQuery(
-    req: Request
-) : Record<string, any>;
-
-declare function useRequestQuery(
-    req: Request, 
-    key: string
-) : any;
-```
 
 ## `TrustProxyInput`
 

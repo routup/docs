@@ -19,9 +19,9 @@ features:
     - icon: 🚀
       title: High Performance
       details: Fast and efficient routing of requests
-    - icon: 📁
-      title: Nestable Routers
-      details: Organize complex APIs and create reusable code modules
+    - icon: 🔌
+      title: Plugin System
+      details: Powerful and easy to learn plugin system
     - icon: 👕
       title: TypeScript Support
       details: Type-safe development and easier maintenance of the codebase

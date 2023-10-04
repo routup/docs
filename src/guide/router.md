@@ -1,83 +1,68 @@
 # Router
 
-A router is a wrapper containing other routers & (error-) handlers, which are composed and executed
-in a stack-like manner upon request.
+A router is a wrapper that stacks [handlers](./handlers.md) and executes them on demand.
+It is the central node of the ecosystem.
 
-Besides that, a router is the entrypoint for determining how an application should respond to an incoming client request on a particular endpoint, 
-which is identified by a URI (or path) and a HTTP method (GET, POST, ...).
-
-Each endpoint aka path can have one or more handler functions, which are executed when the route (& method) is matched.
-
-## Environment
-
-It is possible to use Routup in any javascript runtime environment. Below are examples for Node.Js, Bun and Deno.
-There are different [dispatchers](dispatcher.md) how requests can be transmitted in different ways.
-
-### Node
+Routers can be nested arbitrarily deep and offers different ways
+how a handler or another router can be bound to itself.
+But more about this in the [mounting](#mounting) section.
 
 ```typescript
-import { createServer } from 'http';
-import { 
+import { createServer } from 'node:http';
+import {
+    coreHandler,
     createNodeDispatcher,
     Router
 } from 'routup';
 
 const router = new Router();
 
-router.get('/', () => 'Hello World');
+router.get('/', coreHandler(() => 'Hello, World!'));
 
-createServer(createNodeDispatcher(router)).listen(3000);
+const server = createServer(createNodeDispatcher(router));
+server.listen(3000)
 ```
 
-### Bun
+It is possible to process requests not only from Nodejs, but also from other sources.
+These requests can be transferred to the system with the help of so-called [dispatchers](./dispatchers.md).
+
+## Mounting
+A router can only be connected to another router using the **use** method.
+
+### Global
+
+Don't mount a router one on a specific path.
 
 ```typescript
-import {
-    createWebDispatcher,
-    Router,
-    send
-} from 'routup';
+import { Router } from 'routup';
 
 const router = new Router();
 
-router.get('/', () => 'Hello World');
-
-const dispatch = createWebDispatcher(router);
-
-Bun.serve({
-    async fetch(request) {
-        return dispatch(request);
-    },
-    port: 3000,
-});
+const child = new Router();
+router.use(child);
 ```
 
-### Deno
+### Path
+
+A path can either be declared as [string](./paths.md#string) or as [regular expression](./paths.md#regular-expressions)
+In the following the router is mounted on the path `/child`.
 
 ```typescript
-import {
-    createWebDispatcher,
-    Router,
-    send
-} from 'routup';
+import { Router } from 'routup';
 
 const router = new Router();
 
-router.get('/', () => 'Hello World');
+const child = new Router();
+router.use('/child', child);
+```
 
-const dispatch = createWebDispatcher(router);
+```typescript
+import { Router } from 'routup';
 
-const server = Deno.listen({
-    port: 3000
+const router = new Router({
+    path: '/child'
 });
-for await (const conn of server) {
-    const httpConn = Deno.serveHttp(conn);
 
-    for await (const requestEvent of httpConn) {
-        const response = await dispatch(
-            requestEvent.request
-        );
-        requestEvent.respondWith(response);
-    }
-}
+const child = new Router();
+router.use(child);
 ```

@@ -53,6 +53,7 @@ export default defineConfig({
                 {
                     text: 'Advanced',
                     items: [
+                        { text: 'Hooks', link: '/guide/hooks' },
                         { text: 'Dispatchers', link: '/guide/dispatchers' },
                         { text: 'Runtime Environments', link: '/guide/runtime-environments'}
                     ]

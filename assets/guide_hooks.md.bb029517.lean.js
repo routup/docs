@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as n,Q as p}from"./chunks/framework.cc795e4d.js";const u=JSON.parse('{"title":"Hooks","description":"","frontmatter":{},"headers":[],"relativePath":"guide/hooks.md","filePath":"guide/hooks.md"}'),l={name:"guide/hooks.md"},o=p("",50),e=[o];function t(r,c,E,y,i,d){return a(),n("div",null,e)}const g=s(l,[["render",t]]);export{u as __pageData,g as default};

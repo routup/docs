@@ -22,7 +22,7 @@ features:
     - icon: 🔌
       title: Plugin System
       details: Powerful and easy to learn plugin system
-    - icon: 👕
-      title: TypeScript Support
-      details: Type-safe development and easier maintenance of the codebase
+    - icon: 📌
+      title: Hook system
+      details: Listen to specific events in the request/response lifecycle
 ---

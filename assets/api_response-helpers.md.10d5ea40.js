@@ -119,7 +119,7 @@ import{_ as s,o as n,c as a,Q as p}from"./chunks/framework.6ee49df6.js";const h=
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8;">    </span><span style="color:#F97583;">let</span><span style="color:#E1E4E8;"> i </span><span style="color:#F97583;">=</span><span style="color:#E1E4E8;"> </span><span style="color:#79B8FF;">0</span><span style="color:#E1E4E8;">;</span></span>
 <span class="line"><span style="color:#E1E4E8;">    interval </span><span style="color:#F97583;">=</span><span style="color:#E1E4E8;"> </span><span style="color:#B392F0;">setInterval</span><span style="color:#E1E4E8;">(() </span><span style="color:#F97583;">=&gt;</span><span style="color:#E1E4E8;"> {</span></span>
-<span class="line"><span style="color:#E1E4E8;">        eventStream.</span><span style="color:#B392F0;">push</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Hello world&quot;</span><span style="color:#E1E4E8;">);</span></span>
+<span class="line"><span style="color:#E1E4E8;">        eventStream.</span><span style="color:#B392F0;">write</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&quot;Hello world&quot;</span><span style="color:#E1E4E8;">);</span></span>
 <span class="line"><span style="color:#E1E4E8;">        </span></span>
 <span class="line"><span style="color:#E1E4E8;">        i</span><span style="color:#F97583;">++</span></span>
 <span class="line"><span style="color:#E1E4E8;">        </span><span style="color:#F97583;">if</span><span style="color:#E1E4E8;">(i </span><span style="color:#F97583;">&gt;</span><span style="color:#E1E4E8;"> </span><span style="color:#79B8FF;">100</span><span style="color:#E1E4E8;">) {</span></span>
@@ -140,7 +140,7 @@ import{_ as s,o as n,c as a,Q as p}from"./chunks/framework.6ee49df6.js";const h=
 <span class="line"></span>
 <span class="line"><span style="color:#24292E;">    </span><span style="color:#D73A49;">let</span><span style="color:#24292E;"> i </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> </span><span style="color:#005CC5;">0</span><span style="color:#24292E;">;</span></span>
 <span class="line"><span style="color:#24292E;">    interval </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> </span><span style="color:#6F42C1;">setInterval</span><span style="color:#24292E;">(() </span><span style="color:#D73A49;">=&gt;</span><span style="color:#24292E;"> {</span></span>
-<span class="line"><span style="color:#24292E;">        eventStream.</span><span style="color:#6F42C1;">push</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Hello world&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">        eventStream.</span><span style="color:#6F42C1;">write</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Hello world&quot;</span><span style="color:#24292E;">);</span></span>
 <span class="line"><span style="color:#24292E;">        </span></span>
 <span class="line"><span style="color:#24292E;">        i</span><span style="color:#D73A49;">++</span></span>
 <span class="line"><span style="color:#24292E;">        </span><span style="color:#D73A49;">if</span><span style="color:#24292E;">(i </span><span style="color:#D73A49;">&gt;</span><span style="color:#24292E;"> </span><span style="color:#005CC5;">100</span><span style="color:#24292E;">) {</span></span>

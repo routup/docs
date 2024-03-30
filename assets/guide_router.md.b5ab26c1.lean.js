@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,Q as p}from"./chunks/framework.6ee49df6.js";const h=JSON.parse('{"title":"Router","description":"","frontmatter":{},"headers":[],"relativePath":"guide/router.md","filePath":"guide/router.md"}'),l={name:"guide/router.md"},o=p("",14),e=[o];function t(r,c,E,y,i,u){return n(),a("div",null,e)}const F=s(l,[["render",t]]);export{h as __pageData,F as default};

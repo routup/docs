@@ -7,7 +7,7 @@ options input.
 
 ```typescript
 declare function setResponseCacheHeaders(
-    res: Response, 
+    res: Response,
     options?: ResponseCacheHeadersOptions
 );
 
@@ -20,7 +20,7 @@ type ResponseCacheHeadersOptions = {
 
 ## `appendResponseHeaderDirective`
 
-Append a header directive to an existent response header. 
+Append a header directive to an existent response header.
 If the header is not present in the response, then the header will be created.
 
 ```typescript
@@ -39,7 +39,7 @@ In addition, it sets the `Content-Type` based on the extension of the filename.
 
 ```typescript
 declare function setResponseHeaderAttachment(
-    res: ServerResponse, 
+    res: ServerResponse,
     filename?: string
 );
 ```
@@ -50,8 +50,8 @@ Set the `Content-Type` response header.
 
 ```typescript
 declare function setResponseHeaderContentType(
-    res: ServerResponse, 
-    input: string, 
+    res: ServerResponse,
+    input: string,
     ifNotExists?: boolean
 );
 ```
@@ -104,7 +104,7 @@ Redirect the client to another location.
 
 ```typescript
 declare function sendRedirect(
-    res: Response, 
+    res: Response,
     location: string,
     statusCode = 302
 )
@@ -116,8 +116,45 @@ Send a readable stream to the client.
 
 ```typescript
 declare function sendStream(
-    res: ServerResponse, 
-    stream: Readable | ReadableStream, 
+    res: Response,
+    stream: Readable | ReadableStream,
     fn?: Next
 ) 
+```
+
+## `ServerSentEvents`
+
+Create an EventStream instance for enabling [server sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
+
+```typescript
+declare function createEventStream(
+    res: Response
+) : EventStream;
+```
+
+**`Example`**
+
+```ts
+import { coreHandler, createEventStream } from 'routup';
+
+coreHandler((req, res) => {
+    const eventStream = createEventStream(res);
+
+    let interval;
+
+    eventStream.on('close', () => {
+        clearInterval(interval);
+    })
+
+    let i = 0;
+    interval = setInterval(() => {
+        eventStream.push("Hello world");
+        
+        i++
+        if(i > 100) {
+            // automatically close the event stream after 100 messages
+            eventStream.end();
+        }
+    }, 1000);
+});
 ```

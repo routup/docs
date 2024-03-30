@@ -148,7 +148,7 @@ coreHandler((req, res) => {
 
     let i = 0;
     interval = setInterval(() => {
-        eventStream.push("Hello world");
+        eventStream.write("Hello world");
         
         i++
         if(i > 100) {

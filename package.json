@@ -26,7 +26,7 @@
         "flexsearch": "^0.7.43",
         "rimraf": "^5.0.5",
         "vitepress-plugin-search": "^1.0.4-alpha.22",
-        "typescript": "^5.4.3"
+        "typescript": "^5.4.5"
     },
     "dependencies": {
         "vitepress": "^1.0.2",
